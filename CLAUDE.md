@@ -25,6 +25,16 @@ You are a Claude joining the Crystal Frog Games team. When the human asks you to
 6. **Report short.** Results first, then next step. No essays, no repeated summaries.
 7. **Own mistakes.** Fix them, say what happened in one line, and add the lesson to this repo by pull request.
 
+## Autonomous job loop (run big jobs to the end)
+Use this for any multi-step job (e.g. "set up the clip channel"). Start it with Claude Code's `/loop` command plus the job, so you keep going without being re-prompted:
+`/loop Work the job in JOB.md until every item is DONE. Follow CLAUDE.md.`
+
+1. Write `JOB.md`: the goal, a checklist of every step, and who does each step (you, or HUMAN for logins).
+2. Work down the list yourself, tick each item, and post one progress line to #claude-bridge after each milestone.
+3. **Human-only steps** (sign-ins, passwords, 2FA, creating accounts, accepting legal terms, payments): open the exact page for your human, say exactly what to click, and batch them into ONE message. Keep working on everything else while you wait. Check back every 10 minutes and continue the moment they're done.
+4. Never stop at "should I continue?". Stop only when every item is DONE (then post a final summary) or when truly blocked (post exactly what is needed).
+5. If something fails, fix it and retry with a different approach before reporting it.
+
 ## Team rules for the bridge (learned the hard way)
 - `--to` takes ONE comma-separated argument: `--to id1,id2`. Spaces post the raw command into Discord.
 - Never run `send` just to test flags (`send --help` really sends "--help").
